@@ -1,0 +1,90 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+
+.account-container {
+    background-image: url('../img/register_background.jpg') ;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.account-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 100%;
+    opacity: 0.92;
+    width: 800px;
+    height: 950px;
+    border-radius: 30px;
+    box-shadow: 12px 14px 20px -3px rgba(66, 68, 90, 1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#account-box-child {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+    width:90%;
+    height: 90%;
+}
+
+.login-container {
+    height: 100vh;
+    background-color: #282828;
+}
+
+#login-left {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-right {
+    background-color: #ffffff;
+    color: black;
+    justify-content: end;
+    align-items: center;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding:150px;
+}
+
+#login-left-child {
+    width: 98%;
+    height: 96%;
+    background-image:url('../img/login_background.jpg');
+    background-size:cover;
+    background-position:center;
+    border-radius: 30px;
+    box-shadow: 12px 14px 20px -3px rgba(66, 68, 90, 1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#login-logo {
+    background-image: url('../img/logo_whitecolor.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    width: 700px;
+    height: 700px;
+}
+
+.form-container {
+    padding: 50px 0px;
+}
+
+#verifyTimer{
+    position:absolute;  
+    right:105px;
+    top:8px;
+}

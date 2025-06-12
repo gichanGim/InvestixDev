@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>UnAuthenticated</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ViewMyAssetDev</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/authenticated.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ViewMyAssetDev.style.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body style="background-color:#E1B771">
+    <form>
+        <div class="container">
+            <div class="h1 mt-5 mb-5 fw-bold text-black">ViewMyAssetDev</div>
+            <a class="px-5 py-3 text-white fw-bold" style="border-radius:20px; border:4px solid white;text-decoration:none;" asp-action="Login" asp-controller="Account">로그인 & 회원가입</a>
+        </div>
+    </form>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

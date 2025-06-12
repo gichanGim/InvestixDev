@@ -1,0 +1,24 @@
+﻿#top-background {
+    
+}
+#top-container {
+    height: 520px;
+    background-image: url('../img/stockInfo_top_background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#maininfo {
+}
+
+#symbol-img{
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#top-left {
+    margin-left: 50px;
+    margin-top: 50px;
+}

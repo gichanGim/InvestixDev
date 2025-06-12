@@ -1,0 +1,32 @@
+﻿@using InvestixDev.ViewModels;
+@model VerifyPhoneViewModel;
+
+@{
+    ViewData["Title"] = "비밀번호 찾기";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="account-container" style="background-color:#ffffff">
+    <div class="account-box">
+        <h2 class="text-center mb-4">휴대전화번호 인증</h2>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label">휴대전화번호</label>
+                <input asp-for="Phone" class="form-control mt-3" placeholder="휴대전화번호" autocomplete="off" />
+                <button type="submit" asp-action="SendVerification" class="btn btn-light">인증번호 전송</button>
+            </div>
+            <div>
+                <input id="VerfiyNum" class="form-control" placeholder="인증번호" />
+                <button id="sendVerificationBtn" type="submit" asp-action="Verfiy" class="btn btn-light">인증</button>
+            </div>
+            <input asp-action="VerifyPhoneNum" type="submit" value="다음" class="btn btn-success w-100 p-2" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}

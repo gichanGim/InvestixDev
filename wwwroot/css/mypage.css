@@ -1,0 +1,52 @@
+﻿#user-main {
+    height: 700px;
+    background-image: url('../img/mypage_background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#user-info{
+    padding-left:180px;
+    padding-top:130px;
+    font-weight:bold;
+    color:white;
+}
+
+.modify-btn{
+    width:60px;
+    height:35px;
+    font-size:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:white;
+    border-radius:20px;
+    color:black;
+}
+
+#overlay-mypage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    display: none;
+    pointer-events: auto;
+}
+
+#modify-hidden-key {
+    display: none;
+    position:relative;
+    z-index: 1001;
+    pointer-events: auto;
+}
+
+#modify-hidden-secret {
+    display: none;
+    position: relative;
+    z-index: 1001;
+    pointer-events: auto;
+}

@@ -1,0 +1,81 @@
+﻿@using ViewMyAssetDev.ViewModels;
+@model RegisterViewModel;
+
+@{
+    ViewData["Title"] = "회원가입";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="account-container">
+    <div class="account-box">
+        <div id="account-box-child">
+        <form method="post" class="">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="verifySaltSave" />
+             <input type="hidden" asp-for="IsIdAvailable" id="isIdAvailableSave" />
+             <input type="hidden" asp-for="IsPhoneVerified" id="IsPhoneVerifiedSave" />
+            <div class="mb-3">
+                <label asp-for="UserId" class="form-label">아이디</label>
+                <div class="input-group">
+                    <input asp-for="UserId" id="UserIdInput" class="form-control" placeholder="아이디(3자 이상 8자 이하)" autocomplete="off"/>
+                    <button id="checkIdbtn" type="button" class="btn btn-light">중복 확인</button>
+                </div>
+                <div class="mt-2" id="checkIdResult"></div>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">비밀번호</label>
+                <input asp-for="Password" class="form-control" placeholder="비밀번호(8자 이상 15자 이하)" type="password" autocomplete="off"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div> 
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label">비밀번호 확인</label>
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="비밀번호 확인" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+           <div class="mb-3">
+               <label asp-for="AppKey" class="form-label">APPKEY</label>
+                    <input asp-for="AppKey" class="form-control" placeholder="APPKEY 입력 (없다면 한국투자증권 홈페이지에서 발급받아주세요.)"/>
+                    <span asp-validation-for="AppKey" class="text-danger"></span>
+           </div>
+           <div class="mb-4">
+                    <label asp-for="AppSecret" class="form-label">APPSECRET</label>
+                    <input asp-for="AppSecret" class="form-control" placeholder="APPSECRET 입력 (없다면 한국투자증권 홈페이지에서 발급받아주세요.)" />
+                    <span asp-validation-for="AppSecret" class="text-danger"></span>
+           </div>
+            <div class="mb-3">
+                <label asp-for="PhoneNum" class="form-label">휴대전화번호</label>
+                <div class="input-group">
+                    <input id="PhoneNumInput" asp-for="PhoneNum" class="form-control" placeholder="휴대전화번호" autocomplete="off" />
+                    <button type="button" id="sendVerificationBtn" class="btn btn-light">인증번호 전송</button>
+                </div>
+                 <div class="mt-2" id="checkPhoneResult"></div>
+                <span asp-validation-for="PhoneNum" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="VerfiyPhoneSalt" class="form-label">인증 번호</label>
+                <div class="input-group">
+                <input id="verifySaltInput" asp-for="VerfiyPhoneSalt" class="form-control" placeholder="인증번호 6자리 입력" autocomplete="off" />
+                    <span class="text-danger fw-bold" id="verifyTimer"></span>
+                    <button type="button" id="verifySaltbtn" asp-action="SendVerification" class="btn btn-light">인증하기</button>
+                </div>
+                <div class="mt-2" id="checkSaltResult"></div>
+            </div>
+            <input type="submit" asp-action="Register" value="회원가입" class="btn btn-primary w-100 p-2" style="border-radius:20px;"/>
+            <p class="text-center mt-3">
+                이미 계정이 있으신가요? <a class="text-decoration-none" asp-controller="Account" asp-action="Login">로그인</a>
+            </p>
+            <div class="text-center">
+                <a asp-controller="Account" asp-action="Login" class="text-decoration-none mt-3">뒤로가기</a>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <script src="~/js/register.js"></script>
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}

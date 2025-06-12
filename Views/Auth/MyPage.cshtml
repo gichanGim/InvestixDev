@@ -1,0 +1,64 @@
+﻿@using InvestixDev.ViewModels;
+@model MyPageViewModel;
+
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    var userName = ViewData["UserName"] as string;
+}
+
+<div id="user-main">
+    <div id="user-info" >
+        <div id="user-name" class="d-flex align-items-baseline">
+            <span style="line-height: 1;font-size:130px;">@userName</span>
+            <span class="ms-2" style="line-height: 1;font-size:60px;">님</span>
+        </div>
+        <hr style="width:800px;height:3px;color:white;" />
+        <div class="mt-5">
+            <div class="d-flex align-items-center">
+                <span style="font-size:22px;">
+                    APP KEY
+                </span>
+                <button id="modify-key-btn" type="button" class="modify-btn ms-3 fw-bold">수정</button>
+            </div>
+             <div class="mt-3" style="font-size:16px;">
+                @Model.UserAPIKey.AppKey
+             </div> 
+             <div id="modify-hidden-key">
+                <div class="d-flex align-items-center">
+                    <input id="input-modifykey" type="text" class="form-control" style="width:500px;border-radius:10px;" />
+                    <button id="modify-key-btn-real" class="btn btn-secondary fw-bold" type="button">확인</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <div class="d-flex align-items-center">
+                <span style="font-size:22px;">
+                    APP SECRET
+                </span>
+                <button id="modify-secret-btn" type="button" class="modify-btn ms-3 fw-bold">수정</button>
+            </div>
+            <div class="mt-3 text-break" style="font-size:16px;width:500px;">
+                @Model.UserAPIKey.AppSecret
+            </div>
+            <div id="modify-hidden-secret">
+                <div class="d-flex align-items-center">
+                    <input id ="input-modifysecret" type="text" class="form-control" style="width:500px;border-radius:10px;" />
+                    <button id="modify-secret-btn-real" class="btn btn-secondary fw-bold" type="button">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+<div style="height:1000px;background-color:gray;"></div>
+
+@section Styles {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/mypage.js"></script>
+}
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/mypage.css" asp-append-version="true" />
+}
+    

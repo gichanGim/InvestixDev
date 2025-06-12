@@ -1,0 +1,65 @@
+﻿@using InvestixDev.ViewModels;
+@model StockInfoViewModel;
+
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    
+    string symbol = Model.Symbol;
+    string firstChar = symbol.Substring(0, 1).ToUpper();
+    string bgColor = "#3b7bbf"; // 예시로 Stock
+
+    string fallbackSvg = Uri.EscapeDataString($@"
+        <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'>
+            <rect width='100%' height='100%' fill='{bgColor}'/>
+            <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='white'>{firstChar}</text>
+        </svg>
+    ");
+
+    string fallbackImage = $"data:image/svg+xml;charset=UTF-8,{fallbackSvg}";
+    string imgUrl = $"https://thumb.tossinvest.com/image/resized/96x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-{symbol}.png";
+}
+<div id="top-container" style="height:520px;display:flex;align-items:center;">
+    <div id="top-background" style="flex:7.3;height:100%;">
+        <div id="top-left">
+            <div id="maininfo">
+                <div class="d-flex align-items-center">
+                    <img id="symbol-img" src="@imgUrl" alt="@firstChar" onerror="this.onerror=null; this.src='@fallbackImage';"/>
+                    <div class="ms-3" style="font-size:30px;color:white;font-weight:bold;">@Model.Name</div>
+                    <div class="ms-3" style="font-size:30px;color:gray;font-weight:bold;">@Model.Symbol</div>
+                    <div class="ms-3" style="font-size:20px;color:gray;font-weight:bold;">@Model.Exchange</div>
+                    <div class="ms-1" style="font-size:20px;color:gray;font-weight:bold;">/ @Model.Type</div>
+                </div>
+            </div>
+            <div class="d-flex align-items-baseline mt-5 ms-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="42" height="24" fill="currentColor" viewBox="0 0 14 8" data- test="header-dir"><path d="M1.763 8a.8.8 0 01-.602-1.327L 6.247.86a1 1 0 011.506 0l5.086 5.813A.8.8 0 0112.237 8z"></path></svg>
+                <div class="ms-2" style="font-size:100px;font-weight:bold">504,258</div>
+                <div class="ms-3" style="font-size:35px;font-weight:bold;color:gray;">@Model.Currency</div>
+            </div>
+            <div class="ms-5 text-danger fw-bold d-flex align-items-baseline">
+                <div style="font-size:30px;">+12,093</div>
+                <div class="ms-2" style="font-size:30px;">@Model.Currency</div>
+                <div class="ms-2" style="font-size:30px;">(2.6%)</div>
+            </div>
+        </div>
+    </div>
+    <div style="flex:2.7;height:100%;display:flex;align-items:center;">
+        <div style="background-color:#3b3b3b;width:97%;height:93%;border-radius:15px;">
+            <div class="d-flex mt-3 ms-3">
+                <button class="btn btn-dark" style="width:70px;height:40px;">매수</button>
+                <button class="btn btn-dark" style="width:70px;height:40px;">매도</button>
+            </div>
+            <div>
+                <div>주문 유형</div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item active">시장가 주문</div>
+                    <div class="dropdown-item disabled">지정가 주문</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-color:#292929;height:2000px;"></div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/stockInfo.css" asp-append-version="true" />
+}
